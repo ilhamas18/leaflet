@@ -13,7 +13,7 @@ npx sequelize-cli db:create
 ### Sequelize Create Table
 npx sequelize-cli db:migrate
 
-### Sequelize Create Column
+### Sequelize Seed Data
 npx sequelize-cli db:seed:all
 
 ### Start Server
