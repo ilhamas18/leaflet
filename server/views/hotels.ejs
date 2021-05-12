@@ -1,0 +1,78 @@
+<%- include('./partials/header.ejs', { title: 'Hotel Nearby' }) %>
+
+  <body style="margin: 0; padding: 0">
+    <h2 style="text-align: center; margin: 50px 50px 5px 50px;">Find the Nearest Hotel</h2>
+    <h4 style="text-align: center; margin: 10px;">Hover the Image to see in Detail</h4>
+    <div class="container" style="display: grid; grid-template-columns: 2fr 1fr; grid-gap: 10px; padding: 20px;">
+      <div class="hotel"
+        style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 10px; padding: 10px; background-color: azure;">
+        <% for (let i=0; i < data.length; i++) { %>
+          <div id="hotel<%= i %>">
+            <img style="width: 100%;" src=<%=data[i].image %>>
+            <h4>
+              <%= data[i].name %>
+            </h4>
+            <h5>
+              <%= data[i].price %>
+            </h5>
+          </div>
+          <% } %>
+      </div>
+      <div class="map" id="mapid" style="width: 100%; height: 400px;">
+
+      </div>
+      <script>
+        var mymap = L.map('mapid').setView([-7.25613, 112.75139], 13);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+          maxZoom: 18,
+          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          id: 'mapbox/streets-v11',
+          tileSize: 512,
+          zoomOffset: -1
+        }).addTo(mymap);
+
+        coords = [[-7.2656007, 112.7654889], [-7.2581431, 112.7512443], [-7.2793536, 112.7612283], [-7.2595098, 112.7391234], [-7.2767494, 112.7448414], [-7.2833024, 112.7369031]];
+        rent = ['Rp 1.170.000', 'Rp 940.000', 'Rp 830.000', '1.250.000', '1.750.000', '1.420.000'];
+        name = ['Hotel Sheraton', 'Hotel Bhumi Surabaya', 'Hotel Aston', 'Hotel Shangrila', 'Hotel JW Marriot', 'Hotel Majapahit']
+        areas = ['80m2', '50m2', '55m2', '82 m2', '63m2', '78m2'];
+        bed = [4, 2, 2, 3, 2, 2];
+        images = ['https://pix10.agoda.net/hotelImages/195/195613/195613_19051606550074525830.jpg?s=1024x768',
+          'https://2.bp.blogspot.com/-Jwu9XIBTAAE/XM_ZoBW-rtI/AAAAAAAAAMo/-0uNj1kjA8cer5_4WzI2qcrF4bhphlGkwCLcBGAs/s1600/building.png',
+          'https://pix10.agoda.net/hotelImages/124/12420854/12420854_20012109310087325894.jpg?s=1024x768',
+          'https://www.duniaibuibu.com/wp-content/uploads/2016/11/af57d7d1-7d4e-4b01-84ce-13608975e68b-1024x1024.jpeg',
+          'https://upload.wikimedia.org/wikipedia/id/thumb/2/28/JW_Marriott_Surabaya_%28vector_logo%29.svg/1200px-JW_Marriott_Surabaya_%28vector_logo%29.svg.png',
+          'https://tempatsewamobildisurabayarentalmobildisurabayasrtransport.files.wordpress.com/2020/09/hotel-majapahit.jpg?w=603']
+
+        for (let i = 0; i < coords.length; i++) {
+          var pop = L.popup({
+            closeOnClick: true
+          }).setContent('<h5>Area: ' + areas[i] + '<br>Amount of Bed: ' + bed[i] + '</h5><img src=' + images[i] + ' style="height: 100px">');
+          var marker = L.marker(coords[i]).addTo(mymap).bindPopup(pop);
+          var toollip = L.tooltip({
+            permanent: true
+          }).setContent(rent[i]);
+
+          marker.bindTooltip(toollip);
+
+          var hotel1 = document.querySelector('#hotel0');
+          var hotel2 = document.querySelector('#hotel1');
+          var hotel3 = document.querySelector('#hotel2');
+          var hotel4 = document.querySelector('#hotel3');
+          var hotel5 = document.querySelector('#hotel4');
+          var hotel6 = document.querySelector('#hotel5');
+
+          hotels = [hotel1, hotel2, hotel3, hotel4, hotel5, hotel6];
+
+          hotels[i].addEventListener("mouseover", () => {
+            mymap.flyTo(coords[i], 16)
+          })
+        }
+
+      </script>
+    </div>
+    </div>
+  </body>
+
+  </html>

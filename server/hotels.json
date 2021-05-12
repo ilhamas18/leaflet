@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Hotel Sheraton",
+    "price": "Rp 1.170.000",
+    "image": "https://pix10.agoda.net/hotelImages/195/195613/195613_19051606550074525830.jpg?s=1024x768"
+  },
+  {
+    "name": "Hotel Bhumi Surabaya",
+    "price": "Rp 940.000",
+    "image": "https://origin.pegipegi.com/jalan/images/pict1L/Y8/Y984848/Y984848025.jpg"
+  },
+  {
+    "name": "Hotel Aston",
+    "price": "Rp 830.000",
+    "image": "https://cf.bstatic.com/images/hotel/max1024x768/195/195551833.jpg"
+  },
+  {
+    "name": "Hotel Shangrila",
+    "price": "Rp 1.250.000",
+    "image": "https://d1nabgopwop1kh.cloudfront.net/v2/hotel-asset/guys1L+Yyer9kzI3sp/pb0CG1j2bhflZGFUZOoIf1YMAPxdns1/9rJ+BHEJCrKdzNQ9H8N9F2Vmug3nBPwf/wUqFZby6Qh2Ed3AJan+vungTnzvs3LuJlzGt1VOTW+tNpm82cx8NelweF2OX3yRQJHhMcU96Fp50fy/qVrq4mvtWrZZDDjE+K0pUU1Cw6+Q+"
+  },
+  {
+    "name": "Hotel JW Marriot",
+    "price": "Rp 1.725.000",
+    "image": "https://d2xf5gjipzd8cd.cloudfront.net/available/445454020/445454020_WxH.jpg"
+  },
+  {
+    "name": "Hotel Majapahit",
+    "price": "Rp 1.420.000",
+    "image": "https://pix10.agoda.net/hotelImages/21610452/294941980/2091739087d08d67a25b109c8b246f0a.jpg?s=1024x768"
+  }
+]
